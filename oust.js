@@ -7,6 +7,10 @@ const typeMap = {
   'scripts': {
     name: 'script',
     attr: 'src'
+  },
+  'links': {
+    name: 'a',
+    attr: 'href'
   }
 };
 
