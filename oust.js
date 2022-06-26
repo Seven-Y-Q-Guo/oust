@@ -15,6 +15,10 @@ const typeMap = {
   'images': {
     name: 'img',
     attr: 'src'
+  },
+  'styles': {
+    name: 'style',
+    children: true
   }
 };
 
@@ -27,7 +31,7 @@ function oust(htmlString, type, cb) {
     }
 
     return true;
-  }).map((item) => item.attribs[typeMap[type].attr]);
+  }).map((item) => typeMap[type].children ? item.children[0].data : item.attribs[typeMap[type].attr]);
 }
 
 module.exports = oust;

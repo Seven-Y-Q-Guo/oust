@@ -66,3 +66,11 @@ test('should return an array of image sources', () => {
 
   expect(links).toEqual(expected);
 });
+
+test('should return inline styles from styles tag', () => {
+  const htmlString = fs.readFileSync(__dirname + '/styles.html', 'utf-8');
+  const expected = ['body {padding:0}', 'h1 {font-size: 5rem}'];
+  const links = oust(htmlString, 'styles');
+
+  expect(links).toEqual(expected);
+});
