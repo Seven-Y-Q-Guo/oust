@@ -23,6 +23,14 @@ const typeMap = {
 };
 
 function oust(htmlString, type, cb) {
+  if (!htmlString) {
+    throw new Error('Error: `htmlString` required');
+  }
+
+  if (!type) {
+    throw new Error('Error: `type` required');
+  }
+
   const $ = cheerio.load(htmlString);
   const arr = typeof type === 'string' ? [type] : type;
 

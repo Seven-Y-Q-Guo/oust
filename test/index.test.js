@@ -86,3 +86,11 @@ test('should return hrefs and inline styles in correct order', () => {
 
   expect(links).toEqual(expected);
 });
+
+test('should fail if no htmlString is specified', () => {
+  expect(() => oust()).toThrow('Error: `htmlString` required');
+});
+
+test('should fail if no type is specified', () => {
+  expect(() => oust('<div>seven</div>')).toThrow('Error: `type` required');
+});
