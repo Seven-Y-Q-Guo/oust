@@ -54,3 +54,15 @@ test('should return an array of link URLs', () => {
 
   expect(links).toEqual(expected);
 });
+
+test('should return an array of image sources', () => {
+  const htmlString = fs.readFileSync(__dirname + '/images.html', 'utf-8');
+  const expected = [
+    'http://placekitten.com/200/300',
+    'http://placekitten.com/300/400',
+    'http://placekitten.com/500/600'
+  ];
+  const links = oust(htmlString, 'images');
+
+  expect(links).toEqual(expected);
+});

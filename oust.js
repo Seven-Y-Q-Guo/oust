@@ -11,6 +11,10 @@ const typeMap = {
   'links': {
     name: 'a',
     attr: 'href'
+  },
+  'images': {
+    name: 'img',
+    attr: 'src'
   }
 };
 
