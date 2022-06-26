@@ -26,3 +26,13 @@ test('should return an array of script srcs', () => {
 
   expect(links).toEqual(expected);
 });
+
+test('should return an array of HTML imports', () => {
+  const htmlString = fs.readFileSync(__dirname + '/imports.html', 'utf-8');
+  const expected = ['../polymer/polymer.html', '../core-ajax/core-ajax.html', '../core-input/core-input.html'];
+  const links = oust(htmlString, 'stylesheets', ($el, i) => {
+    return $el.attr('rel') === 'import';
+  });
+
+  expect(links).toEqual(expected);
+});
