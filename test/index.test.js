@@ -74,3 +74,15 @@ test('should return inline styles from styles tag', () => {
 
   expect(links).toEqual(expected);
 });
+
+test('should return hrefs and inline styles in correct order', () => {
+  const htmlString = fs.readFileSync(__dirname + '/mixed.html', 'utf-8');
+  const expected = [
+    'body {padding:0}',
+    'h1 {font-size: 5rem}',
+    'styles/main.css'
+  ];
+  const links = oust(htmlString, ['styles', 'stylesheets']);
+
+  expect(links).toEqual(expected);
+});
