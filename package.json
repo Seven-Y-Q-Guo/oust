@@ -1,8 +1,8 @@
 {
-  "name": "oust",
+  "name": "@seven_y_q_guo/oust",
   "version": "1.0.0",
   "description": "Inspired from https://github.com/addyosmani/oust",
-  "main": "index.js",
+  "main": "oust.js",
   "scripts": {
     "test": "jest"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Seven-Y-Q-Guo/oust.git"
   },
-  "keywords": [],
+  "keywords": ["scrape", "build your own"],
   "author": "",
   "license": "ISC",
   "bugs": {
