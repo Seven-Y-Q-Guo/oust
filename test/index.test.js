@@ -9,12 +9,20 @@ test('should return an array of stylesheet link hrefs', () => {
   expect(links).toEqual(expected);
 });
 
-test('should return an array of stylesheet link hrefs', () => {
+test('should return an array of stylesheet link hrefs via condition', () => {
   const htmlString = fs.readFileSync(__dirname + '/media.html', 'utf-8');
   const expected = ['styles/print.css'];
   const links = oust(htmlString, 'stylesheets', ($el, i) => {
     return $el.attr('media') === 'print';
   });
+
+  expect(links).toEqual(expected);
+});
+
+test('should return an array of script srcs', () => {
+  const htmlString = fs.readFileSync(__dirname + '/scripts.html', 'utf-8');
+  const expected = ['scripts/main.js', 'scripts/out.js'];
+  const links = oust(htmlString, 'scripts');
 
   expect(links).toEqual(expected);
 });
