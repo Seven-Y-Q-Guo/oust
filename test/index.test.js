@@ -36,3 +36,13 @@ test('should return an array of HTML imports', () => {
 
   expect(links).toEqual(expected);
 });
+
+test('should return an array of stylesheet preload hrefs', () => {
+  const htmlString = fs.readFileSync(__dirname + '/preload.html', 'utf-8');
+  const expected = ['styles/preload.css'];
+  const links = oust(htmlString, 'stylesheets', ($el, i) => {
+    return $el.attr('rel') === 'preload';
+  });
+
+  expect(links).toEqual(expected);
+});
